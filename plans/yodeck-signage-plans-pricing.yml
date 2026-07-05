@@ -1,0 +1,121 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Yodeck
+providerId: yodeck-signage
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: true
+tags:
+- Digital Signage
+- Screen Management
+- Per-Screen Pricing
+- Plans
+description: >-
+  Yodeck prices per registered screen per month, billed monthly or annually.
+  Accounts with exactly one registered screen using Basic features run free of
+  charge; the single free screen stays free only while the account has exactly
+  one screen. Paid tiers are Basic, Premium, and Enterprise. The REST API
+  (app.yodeck.com/api-docs) is available on the Premium and Enterprise plans.
+  Deployments over 50 screens require a custom quote from Yodeck sales. Annual
+  billing does not discount the per-screen rate but bundles free player
+  hardware (a Raspberry Pi based Yodeck Player) per screen.
+notes: >-
+  Per-screen rates below reflect Yodeck's published pricing following the
+  April 1, 2026 update (Premium and Enterprise rose $1/screen/month).
+  Third-party aggregators list Premium/Enterprise at $11/$15; Yodeck's own
+  "How is Yodeck priced" documentation lists $12/$16, which is used here.
+  Verify current rates on the Yodeck pricing page during reconciliation.
+sources:
+- https://www.yodeck.com/pricing/
+- https://www.yodeck.com/docs/user-manual/how-is-yodeck-priced/
+- https://www.yodeck.com/docs/user-manual/2026-yodeck-pricing-update/
+- https://www.yodeck.com/features/yodeck-api/
+plans:
+- id: yodeck-free
+  name: Free (Single Screen)
+  type: free
+  description: >-
+    One registered screen with Basic features and apps, free of charge. Remains
+    free only while the account has exactly one registered screen. No API access.
+  entries:
+  - label: Screens
+    name: screens
+    type: usage
+    metric: screens
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '0'
+    userMultiplied: false
+  elements:
+  - name: One Registered Screen
+  - name: Basic Features and Apps
+- id: yodeck-basic
+  name: Basic
+  type: paid
+  description: >-
+    Per-screen plan with Basic features and apps for standard signage
+    deployments. Billed monthly or annually per registered screen.
+  entries:
+  - label: Per Screen
+    name: per_screen
+    type: usage
+    metric: screens
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '8'
+    userMultiplied: true
+  elements:
+  - name: Basic Features and Apps
+  - name: Free Player Hardware on Annual Billing
+- id: yodeck-premium
+  name: Premium
+  type: paid
+  description: >-
+    Per-screen plan adding Premium features and apps plus REST API access for
+    programmatic media, playlist, layout, screen, schedule, and show management.
+  entries:
+  - label: Per Screen
+    name: per_screen
+    type: usage
+    metric: screens
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '12'
+    userMultiplied: true
+  elements:
+  - name: Premium Features and Apps
+  - name: REST API Access
+  - name: Free Player Hardware on Annual Billing
+- id: yodeck-enterprise
+  name: Enterprise
+  type: paid
+  description: >-
+    Per-screen plan for larger and multi-location deployments, adding Enterprise
+    features, workspaces, and REST API access. Deployments over 50 screens
+    require a custom quote from Yodeck sales.
+  entries:
+  - label: Per Screen
+    name: per_screen
+    type: usage
+    metric: screens
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '16'
+    userMultiplied: true
+  elements:
+  - name: Enterprise Features and Apps
+  - name: Workspaces
+  - name: REST API Access
+  - name: Custom Quote Above 50 Screens
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

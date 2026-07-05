@@ -1,0 +1,136 @@
+aid: yodeck-signage
+name: Yodeck
+review:
+  question: Does Yodeck expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Yodeck's documented interfaces are
+    request/response REST over HTTPS (the account REST API at
+    app.yodeck.com/api-docs) plus a local-only Player HTTP API bound to
+    127.0.0.1:8080 on the device. Neither is a server-push transport
+    (WebSocket or SSE) on a public network endpoint, so there is nothing to
+    model as AsyncAPI. Real-time "instant" content updates are delivered by
+    Yodeck's own player sync mechanism to devices, not by a client-facing
+    WebSocket on the public API.
+findings:
+  summary: |
+    Yodeck does not publish a documented public WebSocket API. Yodeck is a
+    cloud digital signage platform. Its programmatic surface is a REST API
+    whose interactive reference lives at https://app.yodeck.com/api-docs/ and
+    is available on the Premium and Enterprise plans. Authentication uses a
+    named, role-scoped API token generated under Account Settings > Advanced
+    Settings > API Tokens; the token acts as a user with the permissions of
+    its assigned role. The REST API covers media, playlists, layouts, screens
+    (called monitors), schedules, shows, and workspaces, and supports syncing
+    media from external URLs and remote screen monitoring/control. Separately,
+    each player exposes a Player HTTP API bound only to localhost
+    (http://127.0.0.1:8080) for on-device apps - it offers /device, /request
+    (proxy), and /storage and is not a public or WebSocket interface. No
+    realtime, bidirectional WebSocket (ws:// or wss://) endpoint is documented
+    on Yodeck's public API.
+  accessModel: |
+    GATED. The REST API is real and documented, but the interactive reference
+    at app.yodeck.com/api-docs is behind an account login and the API feature
+    is restricted to the Premium and Enterprise plans. Because the live spec
+    could not be fetched without an account, the endpoints modeled in this
+    repo's OpenAPI and collections are derived from Yodeck's published resource
+    set and product/feature pages rather than copied from an official
+    machine-readable spec. endpointsModeled is true.
+  endpointsModeled: true
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://app.yodeck.com/api/v1
+      documented: true
+      note: >-
+        Account REST API. Base path modeled; the authoritative, login-gated
+        reference is at app.yodeck.com/api-docs. Available on Premium and
+        Enterprise plans. Auth via a named, role-scoped API token in the
+        Authorization header.
+    - protocol: HTTP (local)
+      scheme: http
+      baseURL: http://127.0.0.1:8080
+      documented: true
+      note: >-
+        Player HTTP API - bound only to localhost on the player, for on-device
+        apps (/device, /request proxy, /storage). Not a public network API and
+        not WebSocket. Auth header "widget <token>" from init_widget.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented anywhere in Yodeck's public API,
+        Player HTTP API, or feature pages as of the review date.
+  endpointsModeledRest:
+    - GET    https://app.yodeck.com/api/v1/media/
+    - POST   https://app.yodeck.com/api/v1/media/
+    - GET    https://app.yodeck.com/api/v1/media/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/media/{id}/
+    - DELETE https://app.yodeck.com/api/v1/media/{id}/
+    - GET    https://app.yodeck.com/api/v1/playlists/
+    - POST   https://app.yodeck.com/api/v1/playlists/
+    - GET    https://app.yodeck.com/api/v1/playlists/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/playlists/{id}/
+    - DELETE https://app.yodeck.com/api/v1/playlists/{id}/
+    - GET    https://app.yodeck.com/api/v1/layouts/
+    - POST   https://app.yodeck.com/api/v1/layouts/
+    - GET    https://app.yodeck.com/api/v1/layouts/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/layouts/{id}/
+    - DELETE https://app.yodeck.com/api/v1/layouts/{id}/
+    - GET    https://app.yodeck.com/api/v1/monitors/
+    - POST   https://app.yodeck.com/api/v1/monitors/
+    - GET    https://app.yodeck.com/api/v1/monitors/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/monitors/{id}/
+    - POST   https://app.yodeck.com/api/v1/monitors/{id}/reboot/
+    - DELETE https://app.yodeck.com/api/v1/monitors/{id}/
+    - GET    https://app.yodeck.com/api/v1/schedules/
+    - POST   https://app.yodeck.com/api/v1/schedules/
+    - GET    https://app.yodeck.com/api/v1/schedules/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/schedules/{id}/
+    - DELETE https://app.yodeck.com/api/v1/schedules/{id}/
+    - GET    https://app.yodeck.com/api/v1/shows/
+    - POST   https://app.yodeck.com/api/v1/shows/
+    - GET    https://app.yodeck.com/api/v1/shows/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/shows/{id}/
+    - DELETE https://app.yodeck.com/api/v1/shows/{id}/
+    - GET    https://app.yodeck.com/api/v1/workspaces/
+    - POST   https://app.yodeck.com/api/v1/workspaces/
+    - GET    https://app.yodeck.com/api/v1/workspaces/{id}/
+    - PATCH  https://app.yodeck.com/api/v1/workspaces/{id}/
+    - DELETE https://app.yodeck.com/api/v1/workspaces/{id}/
+sources:
+  - url: https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+    type: Documentation
+    note: Announces the REST API for managing media, playlists, and layouts; points to app.yodeck.com/api-docs.
+  - url: https://app.yodeck.com/api-docs/
+    type: APIReference
+    note: Interactive API reference; login-gated, so not fetchable without an account.
+  - url: https://www.yodeck.com/academy/api-token/
+    type: Documentation
+    note: API token generation (named, role-scoped); notes API is available for Premium and Enterprise users.
+  - url: https://www.yodeck.com/features/yodeck-api/
+    type: Documentation
+    note: Lists API capabilities - media, playlists/layouts, workspaces, emergency alerts, remote screen control/monitoring; Premium/Enterprise only.
+  - url: https://www.yodeck.com/docs/user-manual/player-http-api/
+    type: Documentation
+    note: Player HTTP API bound to 127.0.0.1:8080 (local only); /device, /request, /storage. Not public, not WebSocket.
+  - url: https://www.yodeck.com/docs/user-manual/how-is-yodeck-priced/
+    type: Documentation
+    note: Per-screen pricing - free single screen, Basic $8, Premium $12, Enterprise $16 per screen per month.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Yodeck's public programmatic surface
+    is request/response REST (account REST API), gated to Premium/Enterprise and
+    documented behind login, plus a local-only Player HTTP API. No AsyncAPI
+    document was created because there is no public server-push transport
+    (WebSocket or SSE) to model. The OpenAPI and collections in this repo are
+    modeled from Yodeck's documented resource set (endpointsModeled: true), not
+    copied from the login-gated official spec.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,394 @@
+{
+  "info": {
+    "name": "Yodeck REST API (Modeled)",
+    "description": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck's live API reference is login-gated at https://app.yodeck.com/api-docs/ and available to Premium and Enterprise plans. This collection is MODELED from Yodeck's documented resource set; confirm the exact base path and Authorization header format against the live reference. Auth uses a named, role-scoped API token from Account Settings > Advanced Settings > API Tokens.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "Authorization", "type": "string" },
+      { "key": "value", "value": "{{apiToken}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://app.yodeck.com/api/v1", "type": "string" },
+    { "key": "apiToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Media",
+      "item": [
+        {
+          "name": "List media",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/media/", "host": ["{{baseUrl}}"], "path": ["media", ""] },
+            "description": "Lists media assets in the account or workspace."
+          }
+        },
+        {
+          "name": "Create media",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Lobby Loop Image\",\n  \"media_type\": \"image\",\n  \"source_url\": \"https://example.com/image.jpg\",\n  \"duration\": 10\n}" },
+            "url": { "raw": "{{baseUrl}}/media/", "host": ["{{baseUrl}}"], "path": ["media", ""] },
+            "description": "Creates a media asset, optionally ingested from an external URL."
+          }
+        },
+        {
+          "name": "Retrieve media",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/media/:id/", "host": ["{{baseUrl}}"], "path": ["media", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a media asset by ID."
+          }
+        },
+        {
+          "name": "Update media",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Name\"\n}" },
+            "url": { "raw": "{{baseUrl}}/media/:id/", "host": ["{{baseUrl}}"], "path": ["media", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a media asset."
+          }
+        },
+        {
+          "name": "Delete media",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/media/:id/", "host": ["{{baseUrl}}"], "path": ["media", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a media asset."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Playlists",
+      "item": [
+        {
+          "name": "List playlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/playlists/", "host": ["{{baseUrl}}"], "path": ["playlists", ""] },
+            "description": "Lists playlists."
+          }
+        },
+        {
+          "name": "Create playlist",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Morning Promos\",\n  \"items\": [{ \"media_id\": 1, \"duration\": 10, \"order\": 1 }]\n}" },
+            "url": { "raw": "{{baseUrl}}/playlists/", "host": ["{{baseUrl}}"], "path": ["playlists", ""] },
+            "description": "Creates a playlist as an ordered sequence of media."
+          }
+        },
+        {
+          "name": "Retrieve playlist",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/playlists/:id/", "host": ["{{baseUrl}}"], "path": ["playlists", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a playlist by ID."
+          }
+        },
+        {
+          "name": "Update playlist",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Playlist\"\n}" },
+            "url": { "raw": "{{baseUrl}}/playlists/:id/", "host": ["{{baseUrl}}"], "path": ["playlists", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a playlist."
+          }
+        },
+        {
+          "name": "Delete playlist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/playlists/:id/", "host": ["{{baseUrl}}"], "path": ["playlists", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a playlist."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layouts",
+      "item": [
+        {
+          "name": "List layouts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/layouts/", "host": ["{{baseUrl}}"], "path": ["layouts", ""] },
+            "description": "Lists multi-zone layouts."
+          }
+        },
+        {
+          "name": "Create layout",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Two Zone\",\n  \"zones\": [{ \"name\": \"main\", \"x\": 0, \"y\": 0, \"width\": 0.75, \"height\": 1, \"content_type\": \"playlist\", \"content_id\": 1 }]\n}" },
+            "url": { "raw": "{{baseUrl}}/layouts/", "host": ["{{baseUrl}}"], "path": ["layouts", ""] },
+            "description": "Creates a multi-zone layout."
+          }
+        },
+        {
+          "name": "Retrieve layout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/layouts/:id/", "host": ["{{baseUrl}}"], "path": ["layouts", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a layout by ID."
+          }
+        },
+        {
+          "name": "Update layout",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Layout\"\n}" },
+            "url": { "raw": "{{baseUrl}}/layouts/:id/", "host": ["{{baseUrl}}"], "path": ["layouts", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a layout."
+          }
+        },
+        {
+          "name": "Delete layout",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/layouts/:id/", "host": ["{{baseUrl}}"], "path": ["layouts", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a layout."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Screens",
+      "item": [
+        {
+          "name": "List screens",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/monitors/", "host": ["{{baseUrl}}"], "path": ["monitors", ""] },
+            "description": "Lists screens (monitors/players)."
+          }
+        },
+        {
+          "name": "Register screen",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Lobby Screen\"\n}" },
+            "url": { "raw": "{{baseUrl}}/monitors/", "host": ["{{baseUrl}}"], "path": ["monitors", ""] },
+            "description": "Registers a screen."
+          }
+        },
+        {
+          "name": "Retrieve screen",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/monitors/:id/", "host": ["{{baseUrl}}"], "path": ["monitors", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a screen with its status and assigned content."
+          }
+        },
+        {
+          "name": "Update screen",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"content_type\": \"show\",\n  \"content_id\": 1\n}" },
+            "url": { "raw": "{{baseUrl}}/monitors/:id/", "host": ["{{baseUrl}}"], "path": ["monitors", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a screen or the content assigned to it."
+          }
+        },
+        {
+          "name": "Reboot screen (modeled)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/monitors/:id/reboot/", "host": ["{{baseUrl}}"], "path": ["monitors", ":id", "reboot", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Triggers a remote reboot. Modeled remote-control action; confirm the exact path against the live reference."
+          }
+        },
+        {
+          "name": "Delete screen",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/monitors/:id/", "host": ["{{baseUrl}}"], "path": ["monitors", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a screen."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Schedules",
+      "item": [
+        {
+          "name": "List schedules",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/schedules/", "host": ["{{baseUrl}}"], "path": ["schedules", ""] },
+            "description": "Lists schedules."
+          }
+        },
+        {
+          "name": "Create schedule",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Business Hours\",\n  \"rules\": [{ \"start\": \"09:00\", \"end\": \"17:00\", \"days_of_week\": [\"mon\",\"tue\",\"wed\",\"thu\",\"fri\"], \"content_type\": \"show\", \"content_id\": 1 }]\n}" },
+            "url": { "raw": "{{baseUrl}}/schedules/", "host": ["{{baseUrl}}"], "path": ["schedules", ""] },
+            "description": "Creates a time-based schedule."
+          }
+        },
+        {
+          "name": "Retrieve schedule",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/schedules/:id/", "host": ["{{baseUrl}}"], "path": ["schedules", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a schedule by ID."
+          }
+        },
+        {
+          "name": "Update schedule",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Schedule\"\n}" },
+            "url": { "raw": "{{baseUrl}}/schedules/:id/", "host": ["{{baseUrl}}"], "path": ["schedules", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a schedule."
+          }
+        },
+        {
+          "name": "Delete schedule",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/schedules/:id/", "host": ["{{baseUrl}}"], "path": ["schedules", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a schedule."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shows",
+      "item": [
+        {
+          "name": "List shows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/", "host": ["{{baseUrl}}"], "path": ["shows", ""] },
+            "description": "Lists shows."
+          }
+        },
+        {
+          "name": "Create show",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Default Show\",\n  \"items\": [{ \"content_type\": \"playlist\", \"content_id\": 1, \"order\": 1 }]\n}" },
+            "url": { "raw": "{{baseUrl}}/shows/", "host": ["{{baseUrl}}"], "path": ["shows", ""] },
+            "description": "Creates a show grouping media, playlists, and layouts."
+          }
+        },
+        {
+          "name": "Retrieve show",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:id/", "host": ["{{baseUrl}}"], "path": ["shows", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a show by ID."
+          }
+        },
+        {
+          "name": "Update show",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Show\"\n}" },
+            "url": { "raw": "{{baseUrl}}/shows/:id/", "host": ["{{baseUrl}}"], "path": ["shows", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a show."
+          }
+        },
+        {
+          "name": "Delete show",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:id/", "host": ["{{baseUrl}}"], "path": ["shows", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a show."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workspaces",
+      "item": [
+        {
+          "name": "List workspaces",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/workspaces/", "host": ["{{baseUrl}}"], "path": ["workspaces", ""] },
+            "description": "Lists workspaces."
+          }
+        },
+        {
+          "name": "Create workspace",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"West Region\",\n  \"description\": \"Stores in the western region\"\n}" },
+            "url": { "raw": "{{baseUrl}}/workspaces/", "host": ["{{baseUrl}}"], "path": ["workspaces", ""] },
+            "description": "Creates a workspace."
+          }
+        },
+        {
+          "name": "Retrieve workspace",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/workspaces/:id/", "host": ["{{baseUrl}}"], "path": ["workspaces", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a workspace by ID."
+          }
+        },
+        {
+          "name": "Update workspace",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Workspace\"\n}" },
+            "url": { "raw": "{{baseUrl}}/workspaces/:id/", "host": ["{{baseUrl}}"], "path": ["workspaces", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a workspace."
+          }
+        },
+        {
+          "name": "Delete workspace",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/workspaces/:id/", "host": ["{{baseUrl}}"], "path": ["workspaces", ":id", ""], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a workspace."
+          }
+        }
+      ]
+    }
+  ]
+}

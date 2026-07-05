@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled)",
+    "version": "1.0",
+    "description": "Programmatic management of a Yodeck digital signage account. Live reference is login-gated at https://app.yodeck.com/api-docs/ (Premium/Enterprise). Endpoints modeled from Yodeck's documented resource set."
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "Authorization",
+        "value": "{{apiToken}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Media", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List media", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/media/" },
+          "docs": "Lists media assets in the account or workspace."
+        },
+        {
+          "info": { "name": "Create media", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/media/", "body": { "type": "json", "data": "{\"name\":\"Lobby Loop Image\",\"media_type\":\"image\",\"source_url\":\"https://example.com/image.jpg\",\"duration\":10}" } },
+          "docs": "Creates a media asset, optionally ingested from an external URL."
+        },
+        {
+          "info": { "name": "Retrieve media", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/media/:id/", "params": [{ "name": "id", "value": "", "type": "path", "description": "Media ID." }] },
+          "docs": "Retrieves a media asset by ID."
+        },
+        {
+          "info": { "name": "Update media", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/media/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Name\"}" } },
+          "docs": "Updates a media asset."
+        },
+        {
+          "info": { "name": "Delete media", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/media/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a media asset."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Playlists", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List playlists", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/playlists/" },
+          "docs": "Lists playlists."
+        },
+        {
+          "info": { "name": "Create playlist", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/playlists/", "body": { "type": "json", "data": "{\"name\":\"Morning Promos\",\"items\":[{\"media_id\":1,\"duration\":10,\"order\":1}]}" } },
+          "docs": "Creates a playlist as an ordered sequence of media."
+        },
+        {
+          "info": { "name": "Retrieve playlist", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/playlists/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a playlist by ID."
+        },
+        {
+          "info": { "name": "Update playlist", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/playlists/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Playlist\"}" } },
+          "docs": "Updates a playlist."
+        },
+        {
+          "info": { "name": "Delete playlist", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/playlists/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a playlist."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Layouts", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List layouts", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/layouts/" },
+          "docs": "Lists multi-zone layouts."
+        },
+        {
+          "info": { "name": "Create layout", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/layouts/", "body": { "type": "json", "data": "{\"name\":\"Two Zone\",\"zones\":[{\"name\":\"main\",\"x\":0,\"y\":0,\"width\":0.75,\"height\":1,\"content_type\":\"playlist\",\"content_id\":1}]}" } },
+          "docs": "Creates a multi-zone layout."
+        },
+        {
+          "info": { "name": "Retrieve layout", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/layouts/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a layout by ID."
+        },
+        {
+          "info": { "name": "Update layout", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/layouts/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Layout\"}" } },
+          "docs": "Updates a layout."
+        },
+        {
+          "info": { "name": "Delete layout", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/layouts/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a layout."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Screens", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List screens", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/monitors/" },
+          "docs": "Lists screens (monitors/players)."
+        },
+        {
+          "info": { "name": "Register screen", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/monitors/", "body": { "type": "json", "data": "{\"name\":\"Lobby Screen\"}" } },
+          "docs": "Registers a screen."
+        },
+        {
+          "info": { "name": "Retrieve screen", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/monitors/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a screen with its status and assigned content."
+        },
+        {
+          "info": { "name": "Update screen", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/monitors/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"content_type\":\"show\",\"content_id\":1}" } },
+          "docs": "Updates a screen or the content assigned to it."
+        },
+        {
+          "info": { "name": "Reboot screen (modeled)", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/monitors/:id/reboot/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Triggers a remote reboot. Modeled remote-control action; confirm the exact path against the live reference."
+        },
+        {
+          "info": { "name": "Delete screen", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/monitors/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a screen."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Schedules", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List schedules", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/schedules/" },
+          "docs": "Lists schedules."
+        },
+        {
+          "info": { "name": "Create schedule", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/schedules/", "body": { "type": "json", "data": "{\"name\":\"Business Hours\",\"rules\":[{\"start\":\"09:00\",\"end\":\"17:00\",\"days_of_week\":[\"mon\",\"tue\",\"wed\",\"thu\",\"fri\"],\"content_type\":\"show\",\"content_id\":1}]}" } },
+          "docs": "Creates a time-based schedule."
+        },
+        {
+          "info": { "name": "Retrieve schedule", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/schedules/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a schedule by ID."
+        },
+        {
+          "info": { "name": "Update schedule", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/schedules/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Schedule\"}" } },
+          "docs": "Updates a schedule."
+        },
+        {
+          "info": { "name": "Delete schedule", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/schedules/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a schedule."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Shows", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List shows", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/shows/" },
+          "docs": "Lists shows."
+        },
+        {
+          "info": { "name": "Create show", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/shows/", "body": { "type": "json", "data": "{\"name\":\"Default Show\",\"items\":[{\"content_type\":\"playlist\",\"content_id\":1,\"order\":1}]}" } },
+          "docs": "Creates a show grouping media, playlists, and layouts."
+        },
+        {
+          "info": { "name": "Retrieve show", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/shows/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a show by ID."
+        },
+        {
+          "info": { "name": "Update show", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/shows/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Show\"}" } },
+          "docs": "Updates a show."
+        },
+        {
+          "info": { "name": "Delete show", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/shows/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a show."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Workspaces", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List workspaces", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/workspaces/" },
+          "docs": "Lists workspaces."
+        },
+        {
+          "info": { "name": "Create workspace", "type": "http" },
+          "http": { "method": "POST", "url": "https://app.yodeck.com/api/v1/workspaces/", "body": { "type": "json", "data": "{\"name\":\"West Region\",\"description\":\"Stores in the western region\"}" } },
+          "docs": "Creates a workspace."
+        },
+        {
+          "info": { "name": "Retrieve workspace", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.yodeck.com/api/v1/workspaces/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Retrieves a workspace by ID."
+        },
+        {
+          "info": { "name": "Update workspace", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.yodeck.com/api/v1/workspaces/:id/", "params": [{ "name": "id", "value": "", "type": "path" }], "body": { "type": "json", "data": "{\"name\":\"Updated Workspace\"}" } },
+          "docs": "Updates a workspace."
+        },
+        {
+          "info": { "name": "Delete workspace", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.yodeck.com/api/v1/workspaces/:id/", "params": [{ "name": "id", "value": "", "type": "path" }] },
+          "docs": "Deletes a workspace."
+        }
+      ]
+    }
+  ]
+}

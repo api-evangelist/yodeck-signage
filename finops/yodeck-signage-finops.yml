@@ -1,0 +1,81 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Yodeck
+providerId: yodeck-signage
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Digital Signage
+- Screen Management
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Yodeck spend. Yodeck bills per registered screen per month
+  (Basic, Premium, Enterprise tiers), with a free single-screen tier. Cost scales
+  directly with the number of registered screens, not with API call volume - the
+  REST API is a feature of the Premium and Enterprise plans rather than a
+  separately metered service. The dominant cost lever is the count and tier of
+  registered screens; annual billing bundles free player hardware per screen.
+notes: >-
+  Per-screen rates follow Yodeck's April 1, 2026 pricing update; confirm current
+  rates and any custom Enterprise quote (over 50 screens) with Yodeck sales.
+  API usage is not separately metered on public pricing.
+sources:
+- https://www.yodeck.com/pricing/
+- https://www.yodeck.com/docs/user-manual/how-is-yodeck-priced/
+- https://www.yodeck.com/features/yodeck-api/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Yodeck
+serviceCategory: Digital Signage and Screen Management
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Yodeck Digital Signage
+  ServiceCategory: Digital Signage and Screen Management
+  ProviderName: Yodeck
+  PublisherName: Yodeck
+  InvoiceIssuerName: Yodeck
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription-Based
+meters:
+- name: registered_screens
+  description: Number of registered screens billed per month at the plan's per-screen rate.
+  unit: screens
+  aggregation: sum
+  dimensions:
+  - account
+  - workspace
+  - plan
+- name: plan_tier
+  description: The plan tier (Basic, Premium, Enterprise) that sets the per-screen rate and feature/API access.
+  unit: tier
+  aggregation: max
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track registered screen count per account and workspace, and the plan tier that sets the per-screen rate.
+- name: Allocation
+  description: Use workspaces to map screens to locations, teams, or clients so per-screen cost allocates cleanly.
+- name: Optimization
+  description: Deregister idle screens (cost is per registered screen), consolidate to the lowest tier that meets feature/API needs, and prefer annual billing for bundled free player hardware.
+- name: Accountability
+  description: Assign workspace owners; review monthly screen counts and tier against budget, and request a custom quote above 50 screens.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

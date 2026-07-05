@@ -1,0 +1,54 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Yodeck
+providerId: yodeck-signage
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Digital Signage
+- Rate Limiting
+- Quotas
+description: >-
+  Yodeck does not publish fixed numeric REST API rate limits on its public
+  marketing or documentation pages; any per-token or per-account throttles are
+  described in the login-gated API reference at app.yodeck.com/api-docs. API
+  access itself is gated by plan (Premium and Enterprise) and by the role
+  assigned to each named API token, which bounds what an integration can read
+  or write. The account's screen count (and therefore its billing) is the
+  primary scaling dimension rather than a request-per-minute cap.
+notes: >-
+  Numeric per-endpoint or per-token request limits are not confirmed from public
+  sources as of the review date. Confirm any throttling behavior, 429 handling,
+  and Retry-After semantics against the live reference behind login.
+sources:
+- https://app.yodeck.com/api-docs/
+- https://www.yodeck.com/features/yodeck-api/
+- https://www.yodeck.com/academy/api-token/
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: token
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented on public pages; see the login-gated reference.
+- name: API Availability by Plan
+  scope: account
+  metric: plan
+  limit: Premium and Enterprise only
+  notes: REST API access is gated to the Premium and Enterprise plans.
+- name: Token Role Scope
+  scope: token
+  metric: permissions
+  limit: role-bound
+  notes: Each named API token acts as a user and is limited to the permissions of its assigned role.
+policies:
+- name: Role-Scoped Access
+  description: API tokens are named and assigned a role; the token can only perform actions permitted by that role.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
