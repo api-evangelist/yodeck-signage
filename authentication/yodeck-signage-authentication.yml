@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/yodeck-signage-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Named, role-scoped API token generated in the Yodeck console (Account Settings
+    > Advanced Settings > API Tokens). The token acts as a user with the permissions of its
+    assigned role. Send it in the Authorization header. The exact header value format (for example
+    "Token name:secret") is documented in the login-gated reference and should be confirmed
+    there.
+  sources:
+  - openapi/yodeck-signage-openapi.yml
