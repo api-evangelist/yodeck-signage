@@ -194,6 +194,8 @@ apis:
     multi-location deployments. Endpoints modeled from Yodeck's documented resource
     set.
 common:
+- type: AgenticAccess
+  url: agentic-access/yodeck-signage-agentic-access.yml
 - type: DomainSecurity
   url: security/yodeck-signage-domain-security.yml
 - type: Authentication
