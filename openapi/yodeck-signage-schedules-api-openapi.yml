@@ -1,0 +1,169 @@
+openapi: 3.0.3
+info:
+  title: Yodeck REST API (Modeled) Layouts Schedules API
+  description: 'Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.
+
+
+    IMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck''s publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.'
+  version: '1.0'
+  contact:
+    name: Yodeck
+    url: https://www.yodeck.com
+    email: support@yodeck.com
+  x-modeled: true
+  x-modeled-note: Endpoints and schemas modeled from Yodeck's documented resource set; the authoritative reference is login-gated at https://app.yodeck.com/api-docs/.
+servers:
+- url: https://app.yodeck.com/api/v1
+  description: Yodeck REST API (base path modeled; confirm against live reference)
+security:
+- tokenAuth: []
+tags:
+- name: Schedules
+  description: Time-based rules controlling what plays where and when.
+paths:
+  /schedules/:
+    get:
+      operationId: listSchedules
+      tags:
+      - Schedules
+      summary: List schedules
+      responses:
+        '200':
+          description: A paginated list of schedules.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleList'
+    post:
+      operationId: createSchedule
+      tags:
+      - Schedules
+      summary: Create a schedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleInput'
+      responses:
+        '201':
+          description: Schedule created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+  /schedules/{id}/:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getSchedule
+      tags:
+      - Schedules
+      summary: Retrieve a schedule
+      responses:
+        '200':
+          description: A schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+    patch:
+      operationId: updateSchedule
+      tags:
+      - Schedules
+      summary: Update a schedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleInput'
+      responses:
+        '200':
+          description: Schedule updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+    delete:
+      operationId: deleteSchedule
+      tags:
+      - Schedules
+      summary: Delete a schedule
+      responses:
+        '204':
+          description: Schedule deleted.
+components:
+  schemas:
+    ScheduleInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        rules:
+          type: array
+          items:
+            type: object
+            properties:
+              start:
+                type: string
+              end:
+                type: string
+              days_of_week:
+                type: array
+                items:
+                  type: string
+              content_type:
+                type: string
+              content_id:
+                type: integer
+    Schedule:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        rules:
+          type: array
+          description: Recurring dayparting or date-range rules.
+          items:
+            type: object
+            properties:
+              start:
+                type: string
+              end:
+                type: string
+              days_of_week:
+                type: array
+                items:
+                  type: string
+              content_type:
+                type: string
+              content_id:
+                type: integer
+    ScheduleList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Named, role-scoped API token generated in the Yodeck console (Account Settings > Advanced Settings > API Tokens). The token acts as a user with the permissions of its assigned role. Send it in the Authorization header. The exact header value format (for example "Token name:secret") is documented in the login-gated reference and should be confirmed there.

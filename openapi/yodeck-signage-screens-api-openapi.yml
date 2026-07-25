@@ -1,0 +1,165 @@
+openapi: 3.0.3
+info:
+  title: Yodeck REST API (Modeled) Layouts Screens API
+  description: 'Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.
+
+
+    IMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck''s publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.'
+  version: '1.0'
+  contact:
+    name: Yodeck
+    url: https://www.yodeck.com
+    email: support@yodeck.com
+  x-modeled: true
+  x-modeled-note: Endpoints and schemas modeled from Yodeck's documented resource set; the authoritative reference is login-gated at https://app.yodeck.com/api-docs/.
+servers:
+- url: https://app.yodeck.com/api/v1
+  description: Yodeck REST API (base path modeled; confirm against live reference)
+security:
+- tokenAuth: []
+tags:
+- name: Screens
+  description: Screens (monitors/players), their status, and remote control.
+paths:
+  /monitors/:
+    get:
+      operationId: listScreens
+      tags:
+      - Screens
+      summary: List screens (monitors)
+      description: Lists screens. Yodeck refers to a screen/player as a monitor.
+      responses:
+        '200':
+          description: A paginated list of screens.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScreenList'
+    post:
+      operationId: createScreen
+      tags:
+      - Screens
+      summary: Register a screen
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScreenInput'
+      responses:
+        '201':
+          description: Screen registered.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Screen'
+  /monitors/{id}/:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getScreen
+      tags:
+      - Screens
+      summary: Retrieve a screen
+      responses:
+        '200':
+          description: A screen with status and assigned content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Screen'
+    patch:
+      operationId: updateScreen
+      tags:
+      - Screens
+      summary: Update a screen
+      description: Update screen settings or the content (media, playlist, layout, or show) assigned to it.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScreenInput'
+      responses:
+        '200':
+          description: Screen updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Screen'
+    delete:
+      operationId: deleteScreen
+      tags:
+      - Screens
+      summary: Delete a screen
+      responses:
+        '204':
+          description: Screen deleted.
+  /monitors/{id}/reboot/:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    post:
+      operationId: rebootScreen
+      tags:
+      - Screens
+      summary: Reboot a screen (modeled action)
+      description: Triggers a remote reboot of the player. Modeled from Yodeck's documented remote screen control and monitoring capability; confirm the exact action path against the live reference.
+      responses:
+        '202':
+          description: Reboot requested.
+components:
+  schemas:
+    ScreenInput:
+      type: object
+      properties:
+        name:
+          type: string
+        content_type:
+          type: string
+        content_id:
+          type: integer
+    Screen:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+          description: Player connectivity/health status.
+        default_show:
+          type: integer
+          nullable: true
+        content_type:
+          type: string
+          description: Type of content assigned (media, playlist, layout, or show).
+        content_id:
+          type: integer
+          nullable: true
+        last_seen:
+          type: string
+          format: date-time
+    ScreenList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Screen'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Named, role-scoped API token generated in the Yodeck console (Account Settings > Advanced Settings > API Tokens). The token acts as a user with the permissions of its assigned role. Send it in the Authorization header. The exact header value format (for example "Token name:secret") is documented in the login-gated reference and should be confirmed there.

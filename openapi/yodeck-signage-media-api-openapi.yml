@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: Yodeck REST API (Modeled) Layouts Media API
+  description: 'Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.
+
+
+    IMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck''s publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.'
+  version: '1.0'
+  contact:
+    name: Yodeck
+    url: https://www.yodeck.com
+    email: support@yodeck.com
+  x-modeled: true
+  x-modeled-note: Endpoints and schemas modeled from Yodeck's documented resource set; the authoritative reference is login-gated at https://app.yodeck.com/api-docs/.
+servers:
+- url: https://app.yodeck.com/api/v1
+  description: Yodeck REST API (base path modeled; confirm against live reference)
+security:
+- tokenAuth: []
+tags:
+- name: Media
+  description: Images, videos, documents, web pages, and app content assets.
+paths:
+  /media/:
+    get:
+      operationId: listMedia
+      tags:
+      - Media
+      summary: List media assets
+      description: Lists media assets in the account or workspace.
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A paginated list of media assets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createMedia
+      tags:
+      - Media
+      summary: Create or upload a media asset
+      description: Creates a media asset. Media can be uploaded directly or ingested from an external URL for automated sync.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaInput'
+      responses:
+        '201':
+          description: Media asset created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /media/{id}/:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getMedia
+      tags:
+      - Media
+      summary: Retrieve a media asset
+      responses:
+        '200':
+          description: A media asset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateMedia
+      tags:
+      - Media
+      summary: Update a media asset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaInput'
+      responses:
+        '200':
+          description: Media asset updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+    delete:
+      operationId: deleteMedia
+      tags:
+      - Media
+      summary: Delete a media asset
+      responses:
+        '204':
+          description: Media asset deleted.
+components:
+  schemas:
+    Media:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        media_type:
+          type: string
+          description: Type of media (image, video, document, webpage, app, etc.).
+        source_url:
+          type: string
+          description: External URL for media ingested by URL sync.
+        duration:
+          type: integer
+          description: Default display duration in seconds.
+        created_at:
+          type: string
+          format: date-time
+    MediaInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        media_type:
+          type: string
+        source_url:
+          type: string
+        duration:
+          type: integer
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+    MediaList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: Page number for paginated results (modeled).
+      schema:
+        type: integer
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      description: Number of results per page (modeled).
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Named, role-scoped API token generated in the Yodeck console (Account Settings > Advanced Settings > API Tokens). The token acts as a user with the permissions of its assigned role. Send it in the Authorization header. The exact header value format (for example "Token name:secret") is documented in the login-gated reference and should be confirmed there.

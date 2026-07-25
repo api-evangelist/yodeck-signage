@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: Yodeck REST API (Modeled) Layouts Workspaces API
+  description: 'Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.
+
+
+    IMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck''s publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.'
+  version: '1.0'
+  contact:
+    name: Yodeck
+    url: https://www.yodeck.com
+    email: support@yodeck.com
+  x-modeled: true
+  x-modeled-note: Endpoints and schemas modeled from Yodeck's documented resource set; the authoritative reference is login-gated at https://app.yodeck.com/api-docs/.
+servers:
+- url: https://app.yodeck.com/api/v1
+  description: Yodeck REST API (base path modeled; confirm against live reference)
+security:
+- tokenAuth: []
+tags:
+- name: Workspaces
+  description: Separate environments with their own users, permissions, and content.
+paths:
+  /workspaces/:
+    get:
+      operationId: listWorkspaces
+      tags:
+      - Workspaces
+      summary: List workspaces
+      responses:
+        '200':
+          description: A paginated list of workspaces.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceList'
+    post:
+      operationId: createWorkspace
+      tags:
+      - Workspaces
+      summary: Create a workspace
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceInput'
+      responses:
+        '201':
+          description: Workspace created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+  /workspaces/{id}/:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getWorkspace
+      tags:
+      - Workspaces
+      summary: Retrieve a workspace
+      responses:
+        '200':
+          description: A workspace.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+    patch:
+      operationId: updateWorkspace
+      tags:
+      - Workspaces
+      summary: Update a workspace
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceInput'
+      responses:
+        '200':
+          description: Workspace updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+    delete:
+      operationId: deleteWorkspace
+      tags:
+      - Workspaces
+      summary: Delete a workspace
+      responses:
+        '204':
+          description: Workspace deleted.
+components:
+  schemas:
+    WorkspaceInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Workspace:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+    WorkspaceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workspace'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Named, role-scoped API token generated in the Yodeck console (Account Settings > Advanced Settings > API Tokens). The token acts as a user with the permissions of its assigned role. Send it in the Authorization header. The exact header value format (for example "Token name:secret") is documented in the login-gated reference and should be confirmed there.
