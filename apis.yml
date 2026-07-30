@@ -13,7 +13,20 @@ description: Yodeck is a cloud-based digital signage platform for managing scree
   on-device apps. The public REST reference is behind an account login, so the
   API surface documented here is modeled from Yodeck's published resource set
   rather than copied from live spec files.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/yodeck-signage.png
 tags:
 - Digital Signage
 - Screen Management
@@ -26,173 +39,167 @@ created: '2026-07-05'
 modified: '2026-07-05'
 specificationVersion: '0.19'
 apis:
-- aid: yodeck-signage:yodeck-media-api
-  name: Yodeck Media API
-  tags:
-  - Media
-  - Content
-  - Assets
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.yodeck.com/features/yodeck-api/
-  baseURL: https://app.yodeck.com/api/v1
-  properties:
-  - url: https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Programmatically upload, list, update, and delete media assets - images,
-    videos, documents, web pages, and app content - and sync media from external URLs
-    into Yodeck. Endpoints are modeled from Yodeck's documented resource set; the
-    live reference is login-gated.
-- aid: yodeck-signage:yodeck-playlists-api
-  name: Yodeck Playlists API
-  tags:
-  - Playlists
-  - Content
-  - Sequencing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.yodeck.com/features/yodeck-api/
-  baseURL: https://app.yodeck.com/api/v1
-  properties:
-  - url: https://www.yodeck.com/docs/user-manual/screen-playlists/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Create, list, get, update, and delete playlists - ordered sequences of
-    media with per-item durations and transitions - and manage the media items within
-    each playlist. Endpoints modeled from Yodeck's documented resource set.
-- aid: yodeck-signage:yodeck-layouts-api
+- aid: yodeck-signage:yodeck-signage-layouts-api
   name: Yodeck Layouts API
+  description: Multi-zone screen layouts that split a display into regions.
+  humanURL: https://www.yodeck.com/features/yodeck-api/
+  baseURL: https://app.yodeck.com/api/v1
   tags:
   - Layouts
-  - Zones
-  - Templates
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/yodeck-signage-layouts-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-media-api
+  name: Yodeck Media API
+  description: Images, videos, documents, web pages, and app content assets.
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v1
-  properties:
-  - url: https://www.yodeck.com/features/yodeck-api/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Build and manage multi-zone screen layouts that split a display into
-    regions, each region playing its own media, playlist, or widget. Create, list,
-    get, update, and delete layouts. Endpoints modeled from Yodeck's documented
-    resource set.
-- aid: yodeck-signage:yodeck-screens-api
-  name: Yodeck Screens API
   tags:
-  - Screens
-  - Monitors
-  - Players
-  - Devices
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/yodeck-signage-media-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-playlists-api
+  name: Yodeck Playlists API
+  description: Ordered sequences of media with per-item duration and transitions.
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v1
+  tags:
+  - Playlists
   properties:
-  - url: https://www.yodeck.com/features/yodeck-api/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Register and manage screens (monitors/players), assign default content,
-    read player status and health, and trigger remote actions such as reboot or content
-    refresh. In Yodeck a screen is often called a monitor. Endpoints modeled from
-    Yodeck's documented resource set.
-- aid: yodeck-signage:yodeck-schedules-api
+  - type: OpenAPI
+    url: openapi/yodeck-signage-playlists-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-schedules-api
   name: Yodeck Schedules API
+  description: Time-based rules controlling what plays where and when.
+  humanURL: https://www.yodeck.com/features/yodeck-api/
+  baseURL: https://app.yodeck.com/api/v1
   tags:
   - Schedules
-  - Calendar
-  - Dayparting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/yodeck-signage-schedules-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-screens-api
+  name: Yodeck Screens API
+  description: Screens (monitors/players), their status, and remote control.
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v1
+  tags:
+  - Screens
   properties:
-  - url: https://www.yodeck.com/features/yodeck-api/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Define time-based schedules that control which content plays on which
-    screens and when, including recurring dayparting rules and date ranges. Create,
-    list, get, update, and delete schedules. Endpoints modeled from Yodeck's
-    documented resource set.
-- aid: yodeck-signage:yodeck-shows-api
+  - type: OpenAPI
+    url: openapi/yodeck-signage-screens-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-shows-api
   name: Yodeck Shows API
+  description: Reusable groupings of media, playlists, and layouts.
+  humanURL: https://www.yodeck.com/features/yodeck-api/
+  baseURL: https://app.yodeck.com/api/v1
   tags:
   - Shows
-  - Grouping
-  - Content Sets
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/yodeck-signage-shows-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
+- aid: yodeck-signage:yodeck-signage-workspaces-api
+  name: Yodeck Workspaces API
+  description: Separate environments with their own users, permissions, and content.
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v1
-  properties:
-  - url: https://www.yodeck.com/features/yodeck-api/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Manage shows - reusable groupings of media, playlists, and layouts that
-    can be assigned to screens as a single content set. Create, list, get, update, and
-    delete shows. Endpoints modeled from Yodeck's documented resource set.
-- aid: yodeck-signage:yodeck-workspaces-api
-  name: Yodeck Workspaces API
   tags:
   - Workspaces
-  - Multi-Tenant
-  - Administration
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.yodeck.com/features/yodeck-api/
-  baseURL: https://app.yodeck.com/api/v1
   properties:
-  - url: https://www.yodeck.com/features/yodeck-api/
-    type: Documentation
-  - url: https://app.yodeck.com/api-docs/
-    type: APIReference
-  - url: openapi/yodeck-signage-openapi.yml
-    type: OpenAPI
-  - url: collections/yodeck-signage.postman_collection.json
-    type: PostmanCollection
-  - url: collections/yodeck-signage.opencollection.json
-    type: OpenCollection
-  description: Programmatically create, configure, and control workspaces - separate
-    environments with their own users, permissions, and content - for agencies and
-    multi-location deployments. Endpoints modeled from Yodeck's documented resource
-    set.
+  - type: OpenAPI
+    url: openapi/yodeck-signage-workspaces-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.yodeck.com/docs/user-manual/introducing-yodecks-rest-api-seamless-integration-for-your-digital-signage-needs/
+  - type: APIReference
+    url: https://app.yodeck.com/api-docs/
+  - type: PostmanCollection
+    url: collections/yodeck-signage.postman_collection.json
+  - type: OpenCollection
+    url: collections/yodeck-signage.opencollection.json
+  - type: Documentation
+    url: https://www.yodeck.com/docs/user-manual/screen-playlists/
+  - type: Documentation
+    url: https://www.yodeck.com/features/yodeck-api/
 common:
 - type: AgenticAccess
   url: agentic-access/yodeck-signage-agentic-access.yml
