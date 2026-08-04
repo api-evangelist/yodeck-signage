@@ -1,0 +1,26 @@
+{
+  "provider": "yodeck-signage",
+  "sources": [
+    "yodeck-signage-layouts-api-openapi.yml",
+    "yodeck-signage-media-api-openapi.yml",
+    "yodeck-signage-playlists-api-openapi.yml",
+    "yodeck-signage-schedules-api-openapi.yml",
+    "yodeck-signage-screens-api-openapi.yml",
+    "yodeck-signage-shows-api-openapi.yml",
+    "yodeck-signage-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "yodeck-signage-layouts-api-openapi.yml",
+    "yodeck-signage-media-api-openapi.yml",
+    "yodeck-signage-playlists-api-openapi.yml",
+    "yodeck-signage-schedules-api-openapi.yml",
+    "yodeck-signage-screens-api-openapi.yml",
+    "yodeck-signage-shows-api-openapi.yml",
+    "yodeck-signage-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
