@@ -1,0 +1,616 @@
+{
+  "item": [
+    {
+      "id": "36197590-008d-4d38-926a-5b475d2e82a7",
+      "name": "Screens",
+      "description": {
+        "content": "Screens (monitors/players), their status, and remote control.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65e969a2-d479-4c79-9c47-cfc30e8d4e03",
+          "name": "List screens (monitors)",
+          "request": {
+            "name": "List screens (monitors)",
+            "description": {
+              "content": "Lists screens. Yodeck refers to a screen/player as a monitor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "monitors",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea099f93-8fbe-4191-9fd9-935c9d3b80f8",
+              "name": "A paginated list of screens.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3753,\n  \"results\": [\n    {\n      \"id\": 2062,\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"default_show\": 7763,\n      \"content_type\": \"string\",\n      \"content_id\": 5082,\n      \"last_seen\": \"1987-05-13T11:35:16.378Z\"\n    },\n    {\n      \"id\": 7359,\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"default_show\": 1274,\n      \"content_type\": \"string\",\n      \"content_id\": 2975,\n      \"last_seen\": \"1983-03-14T07:05:25.110Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba121b29-7b21-48b1-afd3-89a80016f8eb",
+          "name": "Register a screen",
+          "request": {
+            "name": "Register a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "monitors",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"content_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fe2e252-88e8-4717-a20c-47757bb86cea",
+              "name": "Screen registered.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"content_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6471,\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"default_show\": 6577,\n  \"content_type\": \"string\",\n  \"content_id\": 745,\n  \"last_seen\": \"2009-12-18T16:22:33.840Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "209c2055-a3f1-44d5-a62a-37d2c98266a3",
+          "name": "Retrieve a screen",
+          "request": {
+            "name": "Retrieve a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "monitors",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1543d117-0ed2-41b0-a605-de6b84927c24",
+              "name": "A screen with status and assigned content.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6471,\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"default_show\": 6577,\n  \"content_type\": \"string\",\n  \"content_id\": 745,\n  \"last_seen\": \"2009-12-18T16:22:33.840Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f90f7544-05e4-4372-bb75-e399ea162b89",
+          "name": "Update a screen",
+          "request": {
+            "name": "Update a screen",
+            "description": {
+              "content": "Update screen settings or the content (media, playlist, layout, or show) assigned to it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "monitors",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"content_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02c2eb1c-2dfd-472b-b726-f30e8686a11a",
+              "name": "Screen updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"content_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6471,\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"default_show\": 6577,\n  \"content_type\": \"string\",\n  \"content_id\": 745,\n  \"last_seen\": \"2009-12-18T16:22:33.840Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da07a8ee-ec55-4bab-ac96-a8bf436f02f3",
+          "name": "Delete a screen",
+          "request": {
+            "name": "Delete a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "monitors",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc5c0142-b38c-4992-b05e-1d1594580d7b",
+              "name": "Screen deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5252b228-06f0-4013-8b95-1544d0fd6883",
+          "name": "Reboot a screen (modeled action)",
+          "request": {
+            "name": "Reboot a screen (modeled action)",
+            "description": {
+              "content": "Triggers a remote reboot of the player. Modeled from Yodeck's documented remote screen control and monitoring capability; confirm the exact action path against the live reference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "monitors",
+                ":id",
+                "reboot",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80c8738d-dc4b-48bf-b953-6cd058026146",
+              "name": "Reboot requested.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "monitors",
+                    ":id",
+                    "reboot",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.yodeck.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0db4f4ff-a90c-4980-860a-dbacde0d5a8c",
+    "name": "Yodeck REST API (Modeled) Layouts Screens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.\n\nIMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck's publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.\n\nContact Support:\n Name: Yodeck\n Email: support@yodeck.com",
+      "type": "text/plain"
+    }
+  }
+}

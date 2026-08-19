@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "727b6d4a-6992-41cf-9d80-e42d7b33c04c",
+      "name": "Schedules",
+      "description": {
+        "content": "Time-based rules controlling what plays where and when.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b713d76-a1fc-4938-84b7-b67fad24167e",
+          "name": "List schedules",
+          "request": {
+            "name": "List schedules",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45d38354-f219-4090-863e-2ce21dd9d126",
+              "name": "A paginated list of schedules.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2235,\n  \"results\": [\n    {\n      \"id\": 1747,\n      \"name\": \"string\",\n      \"rules\": [\n        {\n          \"start\": \"string\",\n          \"end\": \"string\",\n          \"days_of_week\": [\n            \"string\",\n            \"string\"\n          ],\n          \"content_type\": \"string\",\n          \"content_id\": 3363\n        },\n        {\n          \"start\": \"string\",\n          \"end\": \"string\",\n          \"days_of_week\": [\n            \"string\",\n            \"string\"\n          ],\n          \"content_type\": \"string\",\n          \"content_id\": 9438\n        }\n      ]\n    },\n    {\n      \"id\": 835,\n      \"name\": \"string\",\n      \"rules\": [\n        {\n          \"start\": \"string\",\n          \"end\": \"string\",\n          \"days_of_week\": [\n            \"string\",\n            \"string\"\n          ],\n          \"content_type\": \"string\",\n          \"content_id\": 5820\n        },\n        {\n          \"start\": \"string\",\n          \"end\": \"string\",\n          \"days_of_week\": [\n            \"string\",\n            \"string\"\n          ],\n          \"content_type\": \"string\",\n          \"content_id\": 8078\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "291af533-735e-4475-b088-bf0fe98ed57a",
+          "name": "Create a schedule",
+          "request": {
+            "name": "Create a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d88ace47-3cbb-411a-996f-a5b7699e5f98",
+              "name": "Schedule created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1601,\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 9429\n    },\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 2647\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d4ed615-8de7-4ac1-8943-ebf4d2d6f420",
+          "name": "Retrieve a schedule",
+          "request": {
+            "name": "Retrieve a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1749e150-2a53-4099-bd5c-5bbe60a3044d",
+              "name": "A schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1601,\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 9429\n    },\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 2647\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fae367f3-0175-4b69-be14-55bc7814b0e3",
+          "name": "Update a schedule",
+          "request": {
+            "name": "Update a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d92f7c66-d61d-425d-8934-32d01830ffc8",
+              "name": "Schedule updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"start\": \"<string>\",\n      \"end\": \"<string>\",\n      \"days_of_week\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1601,\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 9429\n    },\n    {\n      \"start\": \"string\",\n      \"end\": \"string\",\n      \"days_of_week\": [\n        \"string\",\n        \"string\"\n      ],\n      \"content_type\": \"string\",\n      \"content_id\": 2647\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e9e2f58-6cb6-4b0e-9c25-018adce0bf32",
+          "name": "Delete a schedule",
+          "request": {
+            "name": "Delete a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6107a4cb-f275-4761-a390-bfd775fa6914",
+              "name": "Schedule deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.yodeck.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "739090c6-b0ef-437d-b6b5-e400a08a9318",
+    "name": "Yodeck REST API (Modeled) Layouts Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.\n\nIMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck's publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.\n\nContact Support:\n Name: Yodeck\n Email: support@yodeck.com",
+      "type": "text/plain"
+    }
+  }
+}

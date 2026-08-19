@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled) Layouts Media API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List media assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/media/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results (modeled)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (modeled)."
+              }
+            ]
+          },
+          "docs": "Lists media assets in the account or workspace."
+        },
+        {
+          "info": {
+            "name": "Create or upload a media asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/media/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a media asset. Media can be uploaded directly or ingested from an external URL for automated sync."
+        },
+        {
+          "info": {
+            "name": "Retrieve a media asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/media/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a media asset"
+        },
+        {
+          "info": {
+            "name": "Update a media asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.yodeck.com/api/v1/media/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a media asset"
+        },
+        {
+          "info": {
+            "name": "Delete a media asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.yodeck.com/api/v1/media/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a media asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

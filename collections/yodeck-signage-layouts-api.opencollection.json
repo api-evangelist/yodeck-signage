@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled) Layouts API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Layouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List layouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/layouts/"
+          },
+          "docs": "List layouts"
+        },
+        {
+          "info": {
+            "name": "Create a layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/layouts/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a layout"
+        },
+        {
+          "info": {
+            "name": "Retrieve a layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/layouts/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a layout"
+        },
+        {
+          "info": {
+            "name": "Update a layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.yodeck.com/api/v1/layouts/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layout"
+        },
+        {
+          "info": {
+            "name": "Delete a layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.yodeck.com/api/v1/layouts/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a layout"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled) Layouts Schedules API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/schedules/"
+          },
+          "docs": "List schedules"
+        },
+        {
+          "info": {
+            "name": "Create a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/schedules/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a schedule"
+        },
+        {
+          "info": {
+            "name": "Retrieve a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/schedules/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a schedule"
+        },
+        {
+          "info": {
+            "name": "Update a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.yodeck.com/api/v1/schedules/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a schedule"
+        },
+        {
+          "info": {
+            "name": "Delete a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.yodeck.com/api/v1/schedules/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a schedule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

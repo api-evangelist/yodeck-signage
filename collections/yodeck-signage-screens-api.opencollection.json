@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled) Layouts Screens API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Screens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List screens (monitors)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/monitors/"
+          },
+          "docs": "Lists screens. Yodeck refers to a screen/player as a monitor."
+        },
+        {
+          "info": {
+            "name": "Register a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/monitors/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a screen"
+        },
+        {
+          "info": {
+            "name": "Retrieve a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/monitors/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a screen"
+        },
+        {
+          "info": {
+            "name": "Update a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.yodeck.com/api/v1/monitors/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update screen settings or the content (media, playlist, layout, or show) assigned to it."
+        },
+        {
+          "info": {
+            "name": "Delete a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.yodeck.com/api/v1/monitors/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a screen"
+        },
+        {
+          "info": {
+            "name": "Reboot a screen (modeled action)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/monitors/:id/reboot/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Triggers a remote reboot of the player. Modeled from Yodeck's documented remote screen control and monitoring capability; confirm the exact action path against the live reference."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

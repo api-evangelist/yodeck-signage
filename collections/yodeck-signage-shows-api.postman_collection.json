@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "8c069e17-b38c-4937-ba5a-4d56eeba3d82",
+      "name": "Shows",
+      "description": {
+        "content": "Reusable groupings of media, playlists, and layouts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03aada3f-0a0a-4344-b656-d00722ab0a51",
+          "name": "List shows",
+          "request": {
+            "name": "List shows",
+            "description": {},
+            "url": {
+              "path": [
+                "shows",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d4246ca-18dd-4dc2-aa67-d26d6a053449",
+              "name": "A paginated list of shows.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8778,\n  \"results\": [\n    {\n      \"id\": 9876,\n      \"name\": \"string\",\n      \"items\": [\n        {\n          \"content_type\": \"string\",\n          \"content_id\": 5277,\n          \"order\": 6910\n        },\n        {\n          \"content_type\": \"string\",\n          \"content_id\": 3357,\n          \"order\": 6367\n        }\n      ]\n    },\n    {\n      \"id\": 7521,\n      \"name\": \"string\",\n      \"items\": [\n        {\n          \"content_type\": \"string\",\n          \"content_id\": 7529,\n          \"order\": 2283\n        },\n        {\n          \"content_type\": \"string\",\n          \"content_id\": 509,\n          \"order\": 7199\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3d1714c-7863-4ec2-9198-1370eea85c7f",
+          "name": "Create a show",
+          "request": {
+            "name": "Create a show",
+            "description": {},
+            "url": {
+              "path": [
+                "shows",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "973b2f2f-ad11-4b16-81ca-51ea9951ab91",
+              "name": "Show created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4257,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 5107,\n      \"order\": 7033\n    },\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 7423,\n      \"order\": 1181\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c5cfcb9-1d91-4f56-aeec-6969cf25713f",
+          "name": "Retrieve a show",
+          "request": {
+            "name": "Retrieve a show",
+            "description": {},
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84309947-7f0f-48c1-8292-1c7b9cdc5098",
+              "name": "A show.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4257,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 5107,\n      \"order\": 7033\n    },\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 7423,\n      \"order\": 1181\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b715a973-b6f0-4954-93bf-2dfab9d0f6d2",
+          "name": "Update a show",
+          "request": {
+            "name": "Update a show",
+            "description": {},
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1d66a73-2c5f-4313-8b79-3d04dbac0fd1",
+              "name": "Show updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4257,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 5107,\n      \"order\": 7033\n    },\n    {\n      \"content_type\": \"string\",\n      \"content_id\": 7423,\n      \"order\": 1181\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7990ca75-3a98-454f-89f7-e6ea3c0c4a68",
+          "name": "Delete a show",
+          "request": {
+            "name": "Delete a show",
+            "description": {},
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce0099ae-f237-4ddb-86c5-81b56a4a8ca3",
+              "name": "Show deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.yodeck.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b7d089e-8eb9-489b-a178-d32003e4776a",
+    "name": "Yodeck REST API (Modeled) Layouts Shows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.\n\nIMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck's publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.\n\nContact Support:\n Name: Yodeck\n Email: support@yodeck.com",
+      "type": "text/plain"
+    }
+  }
+}

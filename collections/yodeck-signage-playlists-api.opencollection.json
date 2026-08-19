@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yodeck REST API (Modeled) Layouts Playlists API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Playlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List playlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/playlists/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results (modeled)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (modeled)."
+              }
+            ]
+          },
+          "docs": "List playlists"
+        },
+        {
+          "info": {
+            "name": "Create a playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.yodeck.com/api/v1/playlists/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a playlist"
+        },
+        {
+          "info": {
+            "name": "Retrieve a playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.yodeck.com/api/v1/playlists/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a playlist"
+        },
+        {
+          "info": {
+            "name": "Update a playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.yodeck.com/api/v1/playlists/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a playlist"
+        },
+        {
+          "info": {
+            "name": "Delete a playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.yodeck.com/api/v1/playlists/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The numeric identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Delete a playlist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

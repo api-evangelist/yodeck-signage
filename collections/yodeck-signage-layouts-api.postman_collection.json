@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "57abc2b3-06e1-4d2d-9994-72b6f2b73970",
+      "name": "Layouts",
+      "description": {
+        "content": "Multi-zone screen layouts that split a display into regions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c1e4827-f862-467b-b0ad-7e91329f0ffe",
+          "name": "List layouts",
+          "request": {
+            "name": "List layouts",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3017d926-5e46-4025-875c-8f7603e6b64e",
+              "name": "A paginated list of layouts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6961,\n  \"results\": [\n    {\n      \"id\": 9972,\n      \"name\": \"string\",\n      \"zones\": [\n        {\n          \"name\": \"string\",\n          \"x\": 7732.665374325246,\n          \"y\": 9576.216424028176,\n          \"width\": 3536.6373389280934,\n          \"height\": 3219.338592021889,\n          \"content_type\": \"string\",\n          \"content_id\": 3177\n        },\n        {\n          \"name\": \"string\",\n          \"x\": 2866.5301443524936,\n          \"y\": 9251.642283872547,\n          \"width\": 983.2264725454287,\n          \"height\": 3873.3783378325315,\n          \"content_type\": \"string\",\n          \"content_id\": 3046\n        }\n      ]\n    },\n    {\n      \"id\": 4573,\n      \"name\": \"string\",\n      \"zones\": [\n        {\n          \"name\": \"string\",\n          \"x\": 6797.826416347055,\n          \"y\": 7422.668183716566,\n          \"width\": 7987.440169738008,\n          \"height\": 1457.2129859666172,\n          \"content_type\": \"string\",\n          \"content_id\": 2941\n        },\n        {\n          \"name\": \"string\",\n          \"x\": 2342.732704665604,\n          \"y\": 9190.897727784124,\n          \"width\": 5230.655165451712,\n          \"height\": 8432.333327509443,\n          \"content_type\": \"string\",\n          \"content_id\": 8935\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4a626cf-56cc-4532-9dea-8e508bf1c6b6",
+          "name": "Create a layout",
+          "request": {
+            "name": "Create a layout",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"zones\": [\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0512855-c169-43bb-bb19-b18988e40e13",
+              "name": "Layout created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"zones\": [\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1500,\n  \"name\": \"string\",\n  \"zones\": [\n    {\n      \"name\": \"string\",\n      \"x\": 3601.9977837844385,\n      \"y\": 1172.3227452571195,\n      \"width\": 4281.8450861611245,\n      \"height\": 4579.613550395021,\n      \"content_type\": \"string\",\n      \"content_id\": 9437\n    },\n    {\n      \"name\": \"string\",\n      \"x\": 8261.38761592326,\n      \"y\": 8362.371617207913,\n      \"width\": 9513.06180018114,\n      \"height\": 3950.613357333249,\n      \"content_type\": \"string\",\n      \"content_id\": 2648\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "586210b9-cf3a-4892-9bcd-6af04023db61",
+          "name": "Retrieve a layout",
+          "request": {
+            "name": "Retrieve a layout",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc884250-0b69-4e36-8672-ef9c19fcac66",
+              "name": "A layout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1500,\n  \"name\": \"string\",\n  \"zones\": [\n    {\n      \"name\": \"string\",\n      \"x\": 3601.9977837844385,\n      \"y\": 1172.3227452571195,\n      \"width\": 4281.8450861611245,\n      \"height\": 4579.613550395021,\n      \"content_type\": \"string\",\n      \"content_id\": 9437\n    },\n    {\n      \"name\": \"string\",\n      \"x\": 8261.38761592326,\n      \"y\": 8362.371617207913,\n      \"width\": 9513.06180018114,\n      \"height\": 3950.613357333249,\n      \"content_type\": \"string\",\n      \"content_id\": 2648\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7984bc6d-a68e-40f8-8066-c38642c63b2e",
+          "name": "Update a layout",
+          "request": {
+            "name": "Update a layout",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"zones\": [\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11dcfd88-ade9-439b-a487-0042b89e8fd9",
+              "name": "Layout updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"zones\": [\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"content_type\": \"<string>\",\n      \"content_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1500,\n  \"name\": \"string\",\n  \"zones\": [\n    {\n      \"name\": \"string\",\n      \"x\": 3601.9977837844385,\n      \"y\": 1172.3227452571195,\n      \"width\": 4281.8450861611245,\n      \"height\": 4579.613550395021,\n      \"content_type\": \"string\",\n      \"content_id\": 9437\n    },\n    {\n      \"name\": \"string\",\n      \"x\": 8261.38761592326,\n      \"y\": 8362.371617207913,\n      \"width\": 9513.06180018114,\n      \"height\": 3950.613357333249,\n      \"content_type\": \"string\",\n      \"content_id\": 2648\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e0838d9-6b36-4af7-b48f-95d494540951",
+          "name": "Delete a layout",
+          "request": {
+            "name": "Delete a layout",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97db609f-8b33-4824-8153-02d3e936a7b2",
+              "name": "Layout deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.yodeck.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e5504a45-ed7e-4b71-94b2-b4dd84d8b953",
+    "name": "Yodeck REST API (Modeled) Layouts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.\n\nIMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck's publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.\n\nContact Support:\n Name: Yodeck\n Email: support@yodeck.com",
+      "type": "text/plain"
+    }
+  }
+}

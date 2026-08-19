@@ -1,0 +1,542 @@
+{
+  "item": [
+    {
+      "id": "3506731d-224b-4734-88ea-4780e9095d7c",
+      "name": "Playlists",
+      "description": {
+        "content": "Ordered sequences of media with per-item duration and transitions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14f78ed8-4194-4fac-9360-4805f91f2d5c",
+          "name": "List playlists",
+          "request": {
+            "name": "List playlists",
+            "description": {},
+            "url": {
+              "path": [
+                "playlists",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for paginated results (modeled)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results per page (modeled)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92af5b84-2df8-48ff-97ea-94b395a4532e",
+              "name": "A paginated list of playlists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "playlists",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6524,\n  \"results\": [\n    {\n      \"id\": 7906,\n      \"name\": \"string\",\n      \"items\": [\n        {\n          \"media_id\": 2805,\n          \"duration\": 7033,\n          \"order\": 9848\n        },\n        {\n          \"media_id\": 2011,\n          \"duration\": 5829,\n          \"order\": 7368\n        }\n      ]\n    },\n    {\n      \"id\": 3477,\n      \"name\": \"string\",\n      \"items\": [\n        {\n          \"media_id\": 1620,\n          \"duration\": 2924,\n          \"order\": 3992\n        },\n        {\n          \"media_id\": 2459,\n          \"duration\": 68,\n          \"order\": 309\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33283865-f973-4c68-a361-93024affff23",
+          "name": "Create a playlist",
+          "request": {
+            "name": "Create a playlist",
+            "description": {},
+            "url": {
+              "path": [
+                "playlists",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "026d9af3-94e3-4cd1-b0a1-275a67fad4e9",
+              "name": "Playlist created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "playlists",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8909,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"media_id\": 8154,\n      \"duration\": 2531,\n      \"order\": 2839\n    },\n    {\n      \"media_id\": 8441,\n      \"duration\": 5268,\n      \"order\": 2848\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2879c0c9-6271-4eff-8a08-92088706c151",
+          "name": "Retrieve a playlist",
+          "request": {
+            "name": "Retrieve a playlist",
+            "description": {},
+            "url": {
+              "path": [
+                "playlists",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20f8e796-7944-4b1f-b07f-6bdd22b0d759",
+              "name": "A playlist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "playlists",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8909,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"media_id\": 8154,\n      \"duration\": 2531,\n      \"order\": 2839\n    },\n    {\n      \"media_id\": 8441,\n      \"duration\": 5268,\n      \"order\": 2848\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4077680-66ee-411e-b5ae-bdb0a447f124",
+          "name": "Update a playlist",
+          "request": {
+            "name": "Update a playlist",
+            "description": {},
+            "url": {
+              "path": [
+                "playlists",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78c9aad4-7013-4fcb-9a2e-2478f75ea41a",
+              "name": "Playlist updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "playlists",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    },\n    {\n      \"media_id\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"order\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8909,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"media_id\": 8154,\n      \"duration\": 2531,\n      \"order\": 2839\n    },\n    {\n      \"media_id\": 8441,\n      \"duration\": 5268,\n      \"order\": 2848\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70dc154d-c6fa-40fb-be18-ad41715b1d04",
+          "name": "Delete a playlist",
+          "request": {
+            "name": "Delete a playlist",
+            "description": {},
+            "url": {
+              "path": [
+                "playlists",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The numeric identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8cc4e56-b13f-4a81-b36d-83993ec60819",
+              "name": "Playlist deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "playlists",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The numeric identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.yodeck.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a0e223b-f54b-42f2-94f1-2f2dd03d5e07",
+    "name": "Yodeck REST API (Modeled) Layouts Playlists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.\n\nIMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck's publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.\n\nContact Support:\n Name: Yodeck\n Email: support@yodeck.com",
+      "type": "text/plain"
+    }
+  }
+}
