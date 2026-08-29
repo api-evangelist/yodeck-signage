@@ -1,0 +1,25 @@
+slug: yodeck-signage
+provider: Yodeck
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Media
+  spec_file: yodeck-signage-media-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.75
+  evidence: POST /media/  createMedia  Create or upload a media asset
+  reason: Upload, list, update and delete of media assets in the signage account — onboarding of source
+    material into an asset platform. Ingest sub-capability is the best fit; no explicit QC or metadata
+    curation operations, hence 0.75.

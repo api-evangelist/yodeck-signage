@@ -213,6 +213,9 @@ apis:
   - type: Documentation
     url: https://www.yodeck.com/features/yodeck-api/
 common:
+- type: CapabilityMap
+  url: capabilities/yodeck-signage-capability-edges.yml
+  name: Yodeck Business Capability Map
 - type: AgenticAccess
   url: agentic-access/yodeck-signage-agentic-access.yml
 - type: DomainSecurity
