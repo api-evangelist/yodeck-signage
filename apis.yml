@@ -13,6 +13,18 @@ description: Yodeck is a cloud-based digital signage platform for managing scree
   on-device apps. The public REST reference is behind an account login, so the
   API surface documented here is modeled from Yodeck's published resource set
   rather than copied from live spec files.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
