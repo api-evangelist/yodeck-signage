@@ -72,7 +72,7 @@ Yodeck is a cloud-based digital signage platform for managing screens and conten
 
 - **The REST API is real and documented, but gated.** The interactive API reference lives at [https://app.yodeck.com/api-docs/](https://app.yodeck.com/api-docs/) and is **behind an account login**. The API feature is available on the **Premium and Enterprise plans** only.
 - **Authentication** uses a **named, role-scoped API token** generated under *Account Settings > Advanced Settings > API Tokens*. The token acts as a user and inherits the permissions of the role assigned to it. The token is shown once at creation.
-- **Endpoints in this repository are MODELED.** Because the live reference is login-gated, the OpenAPI spec and Postman/Open Collection here are modeled from Yodeck's published resource set and product/feature pages, **not** copied from an official machine-readable spec. The base path (`https://app.yodeck.com/api/v1`), exact field names, pagination, and the precise `Authorization` header value format should be confirmed against the live reference before use. See `review.yml` (`endpointsModeled: true`).
+- **Endpoints in this repository are MODELED.** Because the live reference is login-gated, the OpenAPI spec and Postman/Open Collection here are modeled from Yodeck's published resource set and product/feature pages, **not** copied from an official machine-readable spec. The base path (`https://app.yodeck.com/api/v2`), exact field names, pagination, and the precise `Authorization` header value format should be confirmed against the live reference before use. See `review.yml` (`endpointsModeled: true`).
 - **Player HTTP API is separate and local-only.** Each player exposes a Player HTTP API bound to `http://127.0.0.1:8080` for on-device apps (`/device`, `/request` proxy, `/storage`). It is not a public network API and not a WebSocket.
 - **No public WebSocket API.** See `review.yml`.
 
@@ -98,49 +98,49 @@ Yodeck is a cloud-based digital signage platform for managing screens and conten
 Programmatically upload, list, update, and delete media assets - images, videos, documents, web pages, and app content - and sync media from external URLs into Yodeck.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Playlists API
 
 Create, list, get, update, and delete playlists - ordered sequences of media with per-item durations and transitions - and manage the media items within each playlist.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Layouts API
 
 Build and manage multi-zone screen layouts that split a display into regions, each region playing its own media, playlist, or widget.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Screens API
 
 Register and manage screens (monitors/players), assign default content, read player status and health, and trigger remote actions such as reboot or content refresh. In Yodeck a screen is often called a monitor.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Schedules API
 
 Define time-based schedules that control which content plays on which screens and when, including recurring dayparting rules and date ranges.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Shows API
 
 Manage shows - reusable groupings of media, playlists, and layouts that can be assigned to screens as a single content set.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ### Yodeck Workspaces API
 
 Programmatically create, configure, and control workspaces - separate environments with their own users, permissions, and content - for agencies and multi-location deployments.
 
 - **Human URL:** [https://www.yodeck.com/features/yodeck-api/](https://www.yodeck.com/features/yodeck-api/)
-- **Base URL:** `https://app.yodeck.com/api/v1` (modeled)
+- **Base URL:** `https://app.yodeck.com/api/v2` (modeled)
 
 ## Artifacts
 
