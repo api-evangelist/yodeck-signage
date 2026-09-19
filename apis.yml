@@ -127,6 +127,8 @@ apis:
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v2
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
@@ -196,6 +198,8 @@ apis:
   humanURL: https://www.yodeck.com/features/yodeck-api/
   baseURL: https://app.yodeck.com/api/v2
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
