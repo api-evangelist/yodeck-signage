@@ -1,10 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Yodeck REST API (Modeled) Layouts Playlists API
-  description: 'Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces. Yodeck publishes a REST API whose interactive reference lives at https://app.yodeck.com/api-docs/ and is available to Premium and Enterprise plans. Access uses a named, role-scoped API token generated under Account Settings > Advanced Settings > API Tokens; the token acts as a user and inherits the permissions of the role assigned to it.
-
-
-    IMPORTANT: The live Yodeck API reference is behind an account login, so this document is MODELED from Yodeck''s publicly documented resource set and product pages, not copied from an official machine-readable spec. Base path, exact field names, pagination, and the precise Authorization header format should be confirmed against the live reference at app.yodeck.com/api-docs before relying on this specification. Endpoints here are illustrative of the documented capabilities (CRUD over media, playlists, layouts, screens, schedules, shows, workspaces) rather than verbatim.'
+  title: Yodeck REST API (Modeled) Playlists API
+  description: Programmatic management of a Yodeck digital signage account - media, playlists, layouts, screens (monitors), schedules, shows, and workspaces.
   version: '1.0'
   contact:
     name: Yodeck
@@ -145,11 +142,11 @@ components:
               order:
                 type: integer
   parameters:
-    Page:
-      name: page
+    PageSize:
+      name: page_size
       in: query
       required: false
-      description: Page number for paginated results (modeled).
+      description: Number of results per page (modeled).
       schema:
         type: integer
     Id:
@@ -159,11 +156,11 @@ components:
       description: The numeric identifier of the resource.
       schema:
         type: integer
-    PageSize:
-      name: page_size
+    Page:
+      name: page
       in: query
       required: false
-      description: Number of results per page (modeled).
+      description: Page number for paginated results (modeled).
       schema:
         type: integer
   securitySchemes:

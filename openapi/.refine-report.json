@@ -1,13 +1,7 @@
 {
   "provider": "yodeck-signage",
   "sources": [
-    "yodeck-signage-layouts-api-openapi.yml",
-    "yodeck-signage-media-api-openapi.yml",
-    "yodeck-signage-playlists-api-openapi.yml",
-    "yodeck-signage-schedules-api-openapi.yml",
-    "yodeck-signage-screens-api-openapi.yml",
-    "yodeck-signage-shows-api-openapi.yml",
-    "yodeck-signage-workspaces-api-openapi.yml"
+    "_original/yodeck-signage-openapi.yml"
   ],
   "outputs": [
     "yodeck-signage-layouts-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "yodeck-signage-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "yodeck-signage-layouts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-media-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-playlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-screens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-shows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "yodeck-signage-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

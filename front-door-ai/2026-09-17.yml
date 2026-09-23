@@ -1,0 +1,28 @@
+# Front Door AI Index — yodeck-signage — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: yodeck-signage
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.yodeck.com
+  final_host: www.yodeck.com
+  ownership: own
+  owner: yodeck-signage
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 6
+  host_score: 6
+  density: 3.02
+  words: 1987
+  tiers:
+    agentic: 2
+    core: 4
+    model: 0
+  ambiguous: 4
+  top_terms:
+    AI: 4
+    AI agent: 2
+    agent: 2
+    smart: 2
