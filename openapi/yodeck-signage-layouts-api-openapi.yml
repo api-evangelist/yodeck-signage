@@ -92,16 +92,15 @@ paths:
           description: Layout deleted.
 components:
   schemas:
-    Layout:
+    LayoutInput:
       type: object
+      required:
+      - name
       properties:
-        id:
-          type: integer
         name:
           type: string
         zones:
           type: array
-          description: Regions of the screen, each with its own content.
           items:
             type: object
             properties:
@@ -128,15 +127,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Layout'
-    LayoutInput:
+    Layout:
       type: object
-      required:
-      - name
       properties:
+        id:
+          type: integer
         name:
           type: string
         zones:
           type: array
+          description: Regions of the screen, each with its own content.
           items:
             type: object
             properties:

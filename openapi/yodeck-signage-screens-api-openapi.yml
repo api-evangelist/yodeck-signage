@@ -106,15 +106,6 @@ paths:
           description: Reboot requested.
 components:
   schemas:
-    ScreenInput:
-      type: object
-      properties:
-        name:
-          type: string
-        content_type:
-          type: string
-        content_id:
-          type: integer
     Screen:
       type: object
       properties:
@@ -148,6 +139,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Screen'
+    ScreenInput:
+      type: object
+      properties:
+        name:
+          type: string
+        content_type:
+          type: string
+        content_id:
+          type: integer
   parameters:
     Id:
       name: id

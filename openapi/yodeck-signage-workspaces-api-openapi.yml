@@ -92,6 +92,15 @@ paths:
           description: Workspace deleted.
 components:
   schemas:
+    WorkspaceInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
     WorkspaceList:
       type: object
       properties:
@@ -106,15 +115,6 @@ components:
       properties:
         id:
           type: integer
-        name:
-          type: string
-        description:
-          type: string
-    WorkspaceInput:
-      type: object
-      required:
-      - name
-      properties:
         name:
           type: string
         description:

@@ -117,6 +117,15 @@ components:
                 type: string
               content_id:
                 type: integer
+    ScheduleList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
     ScheduleInput:
       type: object
       required:
@@ -141,15 +150,6 @@ components:
                 type: string
               content_id:
                 type: integer
-    ScheduleList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schedule'
   parameters:
     Id:
       name: id

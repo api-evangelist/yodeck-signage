@@ -95,15 +95,6 @@ paths:
           description: Playlist deleted.
 components:
   schemas:
-    PlaylistList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Playlist'
     PlaylistInput:
       type: object
       required:
@@ -122,6 +113,15 @@ components:
                 type: integer
               order:
                 type: integer
+    PlaylistList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Playlist'
     Playlist:
       type: object
       properties:
@@ -142,13 +142,6 @@ components:
               order:
                 type: integer
   parameters:
-    PageSize:
-      name: page_size
-      in: query
-      required: false
-      description: Number of results per page (modeled).
-      schema:
-        type: integer
     Id:
       name: id
       in: path
@@ -161,6 +154,13 @@ components:
       in: query
       required: false
       description: Page number for paginated results (modeled).
+      schema:
+        type: integer
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      description: Number of results per page (modeled).
       schema:
         type: integer
   securitySchemes:
