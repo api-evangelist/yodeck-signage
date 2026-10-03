@@ -118,15 +118,6 @@ components:
                 type: string
               content_id:
                 type: integer
-    LayoutList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Layout'
     Layout:
       type: object
       properties:
@@ -154,6 +145,15 @@ components:
                 type: string
               content_id:
                 type: integer
+    LayoutList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Layout'
   parameters:
     Id:
       name: id

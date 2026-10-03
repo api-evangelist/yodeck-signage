@@ -101,15 +101,6 @@ components:
           type: string
         description:
           type: string
-    WorkspaceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Workspace'
     Workspace:
       type: object
       properties:
@@ -119,6 +110,15 @@ components:
           type: string
         description:
           type: string
+    WorkspaceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workspace'
   parameters:
     Id:
       name: id

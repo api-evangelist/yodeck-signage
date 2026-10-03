@@ -95,33 +95,6 @@ paths:
           description: Playlist deleted.
 components:
   schemas:
-    PlaylistInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              media_id:
-                type: integer
-              duration:
-                type: integer
-              order:
-                type: integer
-    PlaylistList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Playlist'
     Playlist:
       type: object
       properties:
@@ -141,14 +114,34 @@ components:
                 type: integer
               order:
                 type: integer
+    PlaylistList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Playlist'
+    PlaylistInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              media_id:
+                type: integer
+              duration:
+                type: integer
+              order:
+                type: integer
   parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The numeric identifier of the resource.
-      schema:
-        type: integer
     Page:
       name: page
       in: query
@@ -161,6 +154,13 @@ components:
       in: query
       required: false
       description: Number of results per page (modeled).
+      schema:
+        type: integer
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
       schema:
         type: integer
   securitySchemes:

@@ -91,25 +91,15 @@ paths:
         '204':
           description: Show deleted.
 components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
   schemas:
-    ShowInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              content_type:
-                type: string
-              content_id:
-                type: integer
-              order:
-                type: integer
     Show:
       type: object
       properties:
@@ -138,14 +128,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Show'
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The numeric identifier of the resource.
-      schema:
-        type: integer
+    ShowInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              content_type:
+                type: string
+              content_id:
+                type: integer
+              order:
+                type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey
