@@ -105,15 +105,25 @@ paths:
         '202':
           description: Reboot requested.
 components:
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The numeric identifier of the resource.
-      schema:
-        type: integer
   schemas:
+    ScreenList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Screen'
+    ScreenInput:
+      type: object
+      properties:
+        name:
+          type: string
+        content_type:
+          type: string
+        content_id:
+          type: integer
     Screen:
       type: object
       properties:
@@ -138,24 +148,14 @@ components:
         last_seen:
           type: string
           format: date-time
-    ScreenInput:
-      type: object
-      properties:
-        name:
-          type: string
-        content_type:
-          type: string
-        content_id:
-          type: integer
-    ScreenList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Screen'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

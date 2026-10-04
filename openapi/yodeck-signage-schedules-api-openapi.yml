@@ -92,16 +92,15 @@ paths:
           description: Schedule deleted.
 components:
   schemas:
-    Schedule:
+    ScheduleInput:
       type: object
+      required:
+      - name
       properties:
-        id:
-          type: integer
         name:
           type: string
         rules:
           type: array
-          description: Recurring dayparting or date-range rules.
           items:
             type: object
             properties:
@@ -117,15 +116,16 @@ components:
                 type: string
               content_id:
                 type: integer
-    ScheduleInput:
+    Schedule:
       type: object
-      required:
-      - name
       properties:
+        id:
+          type: integer
         name:
           type: string
         rules:
           type: array
+          description: Recurring dayparting or date-range rules.
           items:
             type: object
             properties:

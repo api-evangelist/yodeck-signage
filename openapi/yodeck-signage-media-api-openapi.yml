@@ -103,26 +103,19 @@ paths:
           description: Media asset deleted.
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Missing or invalid API token.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
-    Page:
-      name: page
-      in: query
-      required: false
-      description: Page number for paginated results (modeled).
-      schema:
-        type: integer
     PageSize:
       name: page_size
       in: query
@@ -137,24 +130,14 @@ components:
       description: The numeric identifier of the resource.
       schema:
         type: integer
+    Page:
+      name: page
+      in: query
+      required: false
+      description: Page number for paginated results (modeled).
+      schema:
+        type: integer
   schemas:
-    MediaList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Media'
     Error:
       type: object
       properties:
@@ -192,6 +175,23 @@ components:
           type: string
         duration:
           type: integer
+    MediaList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
   securitySchemes:
     tokenAuth:
       type: apiKey

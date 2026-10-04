@@ -92,15 +92,6 @@ paths:
           description: Workspace deleted.
 components:
   schemas:
-    WorkspaceInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     Workspace:
       type: object
       properties:
@@ -119,6 +110,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Workspace'
+    WorkspaceInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
   parameters:
     Id:
       name: id

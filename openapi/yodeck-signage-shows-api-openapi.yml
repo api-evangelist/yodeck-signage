@@ -91,14 +91,6 @@ paths:
         '204':
           description: Show deleted.
 components:
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The numeric identifier of the resource.
-      schema:
-        type: integer
   schemas:
     Show:
       type: object
@@ -146,6 +138,14 @@ components:
                 type: integer
               order:
                 type: integer
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey
