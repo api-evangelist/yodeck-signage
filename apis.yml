@@ -49,7 +49,7 @@ tags:
 - Scheduling
 - Raspberry Pi
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: yodeck-signage:yodeck-signage-layouts-api
@@ -218,6 +218,10 @@ apis:
   - type: Documentation
     url: https://www.yodeck.com/features/yodeck-api/
 common:
+- url: https://www.yodeck.com/blog/
+  type: Blog
+- url: https://www.yodeck.com/feed/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/yodeck-signage-capability-edges.yml
   name: Yodeck Business Capability Map
