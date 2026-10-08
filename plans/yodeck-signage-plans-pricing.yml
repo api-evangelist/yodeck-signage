@@ -124,3 +124,43 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units:
+  - object
+  plans:
+  - name: Free (Single Screen)
+    access: free
+    model: metered
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Basic
+    access: paid
+    model: metered
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Premium
+    access: paid
+    model: metered
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Enterprise
+    access: paid
+    model: metered
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
