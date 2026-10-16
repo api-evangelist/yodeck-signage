@@ -1,0 +1,21 @@
+{
+  "repo": "yodeck-signage",
+  "feeds": [
+    {
+      "source": "https://www.yodeck.com/blog/",
+      "feed_url": "https://www.yodeck.com/blog/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.yodeck.com/feed/",
+      "feed_url": "https://www.yodeck.com/feed/",
+      "title": "",
+      "saved": 2,
+      "method": "feed"
+    }
+  ],
+  "post_count": 2,
+  "fetched": "2026-10-10T13:15:00Z"
+}
