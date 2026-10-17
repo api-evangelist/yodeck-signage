@@ -111,15 +111,6 @@ components:
                 type: integer
               order:
                 type: integer
-    ShowList:
-      type: object
-      properties:
-        count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Show'
     ShowInput:
       type: object
       required:
@@ -138,6 +129,15 @@ components:
                 type: integer
               order:
                 type: integer
+    ShowList:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Show'
   parameters:
     Id:
       name: id

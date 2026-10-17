@@ -91,33 +91,15 @@ paths:
         '204':
           description: Layout deleted.
 components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The numeric identifier of the resource.
+      schema:
+        type: integer
   schemas:
-    LayoutInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        zones:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              x:
-                type: number
-              y:
-                type: number
-              width:
-                type: number
-              height:
-                type: number
-              content_type:
-                type: string
-              content_id:
-                type: integer
     Layout:
       type: object
       properties:
@@ -154,14 +136,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Layout'
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The numeric identifier of the resource.
-      schema:
-        type: integer
+    LayoutInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        zones:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              x:
+                type: number
+              y:
+                type: number
+              width:
+                type: number
+              height:
+                type: number
+              content_type:
+                type: string
+              content_id:
+                type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey
